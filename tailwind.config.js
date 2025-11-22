@@ -10,7 +10,9 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-geist-sans)"],          // primary UI font
         mono: ["var(--font-geist-mono)"],          // optional mono
-        code: ["var(--font-fira-code)"],           // for code blocks & headings
+        poppins: ["var(--font-poppins)"],
+        code: ["var(--font-fira-code)"],  
+        quicksand: ['var(--font-quicksand)', 'sans-serif'],        // for code blocks & headings
       },
     },
   },

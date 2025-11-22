@@ -5,9 +5,19 @@
 html {
   scroll-behavior: smooth;
 }
+body {
+  font-family: var(--font-quicksand), sans-serif;
+}
 @theme {
   --font-sand: var(--font-sans), ui-sans-serif, system-ui, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noot Color Emoji';
+
+  --font-poppins: var(--font-poppins), ui-sans-serif, system-ui, sans-serif,
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --font-fira-code: var(--font-fira-code), ui-monospace, SFMono-Regular,
+  Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-quicksand: 'Quicksand', sans-serif; 
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -126,6 +136,24 @@ html {
   --chart-5: 340 75% 55%;
 }
   }
+
+  @theme inline {
+  --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1
+  var(--delay, 0ms);
+
+  @keyframes cell-ripple {
+    0% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+}
+
 
 @layer base {
   * {

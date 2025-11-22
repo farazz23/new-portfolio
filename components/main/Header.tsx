@@ -2,93 +2,91 @@
 import {
   Sun,
   Moon,
-  Github,
-  Linkedin,
-  Mail,
-  CodeXml,
   ChessQueen,
-  Flame,
-  MoonStar,
+  Mail,
+  Linkedin,
+  Github,
+  Facebook,
+  Code,
+  Instagram,
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useTheme } from 'next-themes';
+import { FloatingNav } from '../ui/floating-navbar';
 import Link from 'next/link';
-import { FloatingNavDemo } from '../aceternity/FloatingNavDemo';
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
   const isDark = theme === 'dark';
-  // const handleThemeButton = () => {
-  //   setTheme(theme === 'dark' ? 'light' : 'dark');
-  // };
+
+  const logos = [
+    {
+      id: 1,
+      icon: <Mail />,
+      link: 'mailto:ashraffaraaz6@gmail.com',
+    },
+    {
+      id: 2,
+      icon: <Linkedin />,
+      link: 'https://github.com/farazz23',
+    },
+    {
+      id: 3,
+      icon: <Github />,
+      link: 'https://github.com/farazz23',
+    },
+    {
+      id: 4,
+      icon: <Code />,
+      link: 'https://leetcode.com/damon_23',
+    },
+    {
+      id: 5,
+      icon: <Facebook />,
+      link: 'https://facebook.com/faraz',
+    },
+    {
+      id: 6,
+      icon: <Instagram />,
+      link: 'https://instagram/__.theboynextdoor',
+    },
+  ];
 
   return (
-    // <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg">
-    //   <section
-    //     className="font-sans w-full max-w-7xl mx-auto flex items-center justify-between
-    //                   py-4 md:py-5 lg:py-5 px-6 md:px-4 lg:px-28"
-    //   >
-    //     {/* Left side */}
-    //     <div className="flex items-center justify-start lg:flex-1">
-    //       <h1
-    //         className="hover:-rotate-12 transform transition duration-200 ease-in-out
-    //                  font-extrabold lg:text-xl text-gray-900 dark:text-gray-50"
-    //       >
-    //         TBND
-    //       </h1>
-    //     </div>
-
-    //     {/* Floating Navbar */}
-    //     <FloatingNavDemo />
-
-    //     {/* Right side */}
-    //     <div className="flex lg:justify-end lg:items-center lg:flex-1">
-    //       <div className="flex items-center gap-3 mr-2">
-    //         <Link href="mailto:ashraffaraaz6@gmail.com">
-    //           <Mail className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7" />
-    //         </Link>
-
-    //         <Link href="https://github.com/farazz23">
-    //           <Github className="h-5 w-5 sm:h-6 sm:w-6 lg:h-5 lg:w-5" />
-    //         </Link>
-
-    //         <Link href="https://linkedin.com/farazz23" target="blank">
-    //           <Linkedin className="h-5 w-5 sm:h-6 sm:w-6 lg:h-5 lg:w-5" />
-    //         </Link>
-
-    //         <Link href="https://linkedin.com/farazz23" target="blank">
-    //           <CodeXml className="h-5 w-5 sm:h-6 sm:w-6 lg:h-5 lg:w-5" />
-    //         </Link>
-
-    //         <div className="cursor-pointer text-gray-900 dark:text-gray-50">
-    //           {theme === 'light' ? (
-    //             <Moon
-    //               onClick={handleThemeButton}
-    //               className="h-5 w-5 sm:h-6 sm:w-6 lg:h-5 lg:w-5"
-    //             />
-    //           ) : (
-    //             <Sun
-    //               onClick={handleThemeButton}
-    //               className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7"
-    //             />
-    //           )}
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </section>
-    // </header>
-    <header className="container flex items-center justify-between py-4 md:py-5 lg:py-8 px-3 md:px-4 lg:px-6 mx-auto">
+    <header
+      className=" fixed top-0 left-0 right-0 w-full z-50
+    backdrop-blur-md 
+    container flex items-center justify-between 
+    py-2 md:py-5 lg:py-6 px-3 md:px-4 lg:px-6 mx-auto"
+    >
       {/* Left side :- Logo */}
       <div className="lg:flex-1 ">
         <div className="flex items-center gap-1.5">
           <ChessQueen className="hover:scale-105" />
-          <h3 className="font-bold text-xl tracking-wider">
-            T<span className="text-rose-500 text-2xl">B</span>ND
+          <h3 className="font-bold text-xl">
+            FA<span className="text-rose-500">R</span>AZ
           </h3>
         </div>
       </div>
+
+      {/* Middle side : Navigatin bar */}
+      <div className="hidden md:block">
+        <div className="flex items-center gap-5 cursor-pointer">
+          {logos.map((item) => (
+            <Link
+              href={item.link}
+              key={item.id}
+              className="hover:scale-125 transition-all duration-300 ease-in-out hover:text-rose-400 w-4 h-4"
+            >
+              {item.icon}
+            </Link>
+          ))}
+        </div>
+      </div>
+
       {/* Right side :- Links */}
       <div className="flex lg:justify-end lg:flex-1">
+        <div></div>
         <button
           onClick={() => setTheme(isDark ? 'light' : 'dark')}
           className="relative w-16 h-8 rounded-full bg-neutral-300 dark:bg-neutral-800 p-1 flex items-center justify-start dark:justify-end overflow-hidden"
