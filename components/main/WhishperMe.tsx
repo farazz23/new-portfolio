@@ -3,22 +3,13 @@ import { motion } from 'framer-motion'; // use framer-motion if possible
 import { Input } from '../ui/input';
 
 const WhisperMe = () => {
-  const placeholders = [
-    "What's the first rule of Fight Club?",
-    'Who is Tyler Durden?',
-    'Where is Andrew Laeddis hiding?',
-    'Write a JavaScript method to reverse a string',
-    'How to assemble your own PC?',
-  ];
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-  };
-
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('submitted');
-  };
+  // const placeholders = [
+  //   "What's the first rule of Fight Club?",
+  //   'Who is Tyler Durden?',
+  //   'Where is Andrew Laeddis hiding?',
+  //   'Write a JavaScript method to reverse a string',
+  //   'How to assemble your own PC?',
+  // ];
 
   return (
     <section className="relative container w-full pt-24 pb-20 md:pt-28 min-h-screen overflow-hidden">
@@ -59,7 +50,7 @@ const WhisperMe = () => {
         </motion.p>
 
         {/* Action Words */}
-        <div className="flex items-center justify-center gap-2 ">
+        <div className="flex items-center justify-center gap-1.5 ">
           {['Your ', 'whisper', 'my', 'inbox'].map((item, idx) => (
             <motion.p
               key={idx}
@@ -72,10 +63,6 @@ const WhisperMe = () => {
             </motion.p>
           ))}
         </div>
-
-        <form action="">
-          <Input type="email" placeholder="Email" />
-        </form>
       </div>
     </section>
   );
