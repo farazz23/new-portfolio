@@ -85,10 +85,10 @@ const About = () => {
         {/* Heading */}
         <div>
           <h1 className="text-3xl font-quicksand md:text-4xl font-semibold text-gray-900 dark:text-gray-100 relative">
-            About
+            Meet the Engineer
             <motion.span
               initial={{ opacity: 1, width: 0 }}
-              whileInView={{ opacity: 1, width: 150 }}
+              whileInView={{ opacity: 1, width: 300 }}
               transition={{ duration: 0.8, ease: 'easeIn' }}
               className="block  h-[3px] mt-2 bg-rose-500 dark:bg-rose-400 rounded-full"
             ></motion.span>
