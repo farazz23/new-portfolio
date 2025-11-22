@@ -1,11 +1,10 @@
 import About from '@/components/main/About';
-import MainPage from '@/components/main/MainPage';
+import LandingPage from '@/components/main/LandingPage';
 
 export default function Home() {
   return (
-    <section className="mt-24">
-      {/* <DottedGlowBackgroundDemoSecond /> */}
-      <MainPage />
+    <section className="relative w-full ">
+      <LandingPage />
       <About />
       {/* 
         <Experience />

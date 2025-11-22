@@ -35,7 +35,7 @@ const MainPage = () => {
   return (
     // SECTION: Added 'bg-slate-950' to force that dark "image look" immediately
     // (assuming you want this dark vibe).
-    <section className="relative w-full pt-16 md:pt-8 pb-20 overflow-hidden  min-h-screen">
+    <section className="relative w-full pt-16 md:pt-8 pb-20 overflow-hidden  min-h-screen mt-3 md:mt-12">
       <div className="w-full max-w-7xl mx-auto px-6 md:px-4 lg:px-36">
         {/* --- Name Banner Wrapper --- */}
         <div className="text-center mb-16 lg:mb-24">
@@ -60,7 +60,7 @@ const MainPage = () => {
             {/* --- The Text --- */}
             <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold  tracking-tighter leading-[0.9] text-blue-950 dark:text-blue-200">
               {/* Updated Gradient to match the Cyan -> Pink image */}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-500 to-fuchsia-500 dark:from-fuchsia-500 dark:via-purple-500 dark:to-cyan-400">
+              <span className=" bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-500 to-fuchsia-500 dark:from-fuchsia-500 dark:via-purple-500 dark:to-cyan-400">
                 FARAAZ
               </span>{' '}
               <br className="md:hidden" />

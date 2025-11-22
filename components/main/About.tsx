@@ -4,7 +4,7 @@ const About = () => {
   return (
     <section
       className="relative w-full pt-28 md:pt-24 pb-20 overflow-hidden min-h-screen 
-                    bg-white dark:bg-[#05050f] transition-colors duration-300"
+                     transition-colors duration-300"
     >
       {/* Soft background glow */}
       <div
