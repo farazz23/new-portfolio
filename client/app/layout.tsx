@@ -56,10 +56,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${firaCode.variable} ${quicksand.variable} ${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
       >
         <SpeedInsights />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

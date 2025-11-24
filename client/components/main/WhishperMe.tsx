@@ -5,7 +5,6 @@ import { Input } from '../ui/input';
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -14,6 +13,7 @@ import { Button2 } from '../ui/stateful-button';
 import { Label } from '../ui/label';
 import { cn } from '@/lib/utils';
 import axios from 'axios';
+// import Link from 'next/link';
 
 const WhisperMe = () => {
   const [formContent, setFormContent] = useState({
@@ -81,15 +81,16 @@ const WhisperMe = () => {
           Drop your thoughts anonymously — your identity is optional.
         </motion.p>
 
+        {/*  */}
         <Card className="w-full max-w-md lg:max-w-lg my-4">
           <CardHeader>
-            <CardTitle className="font-extrabold ">
-              Your Wishper 🗣️​​, My Inbox 📩
+            <CardTitle className="font-extrabold text-md md:text-xl">
+              Your Wishper 🗣️​​ My Inbox 📩
             </CardTitle>
-            <CardDescription className="mb-1">
+            {/* <CardDescription className="mb-1">
               Share your secrets, ideas, or musings <br></br> anonymity
               guaranteed.
-            </CardDescription>
+            </CardDescription> */}
           </CardHeader>
           <CardContent>
             <form onSubmit={handleFormSubmit} id="wishper_form">
@@ -148,20 +149,14 @@ const WhisperMe = () => {
             </Button2>
           </CardFooter>
         </Card>
+
+        {/* <p className="font-bold">See what other people says...</p>
+        <Link href="/message" className="font-bold hover:text-red-500">
+          Click Me
+        </Link> */}
       </div>
     </section>
   );
 };
 
 export default WhisperMe;
-// {['Your ', 'whisper', 'my', 'inbox'].map((item, idx) => (
-//             <motion.p
-//               key={idx}
-//               initial={{ opacity: 0, y: -20 }}
-//               whileInView={{ opacity: 1, y: 0 }}
-//               transition={{ duration: 0.9, ease: 'easeOut', delay: idx * 0.35 }}
-//               className="font-quicksand text-xl  font-semibold dark:text-white"
-//             >
-//               {item}
-//             </motion.p>
-//           ))}
