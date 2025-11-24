@@ -1,0 +1,30 @@
+[project]
+name = "portfolio-backend"
+version = "0.1.0"
+description = "A backend setup for handling the frontend response "
+authors = [
+    {name = "Faraaz Ashraf",email = "farazashraf1523@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard] (>=0.121.3,<0.122.0)",
+    "uvicorn[standard] (>=0.38.0,<0.39.0)",
+    "sqlalchemy (>=2.0.44,<3.0.0)",
+    "psycopg2-binary (>=2.9.11,<3.0.0)",
+    "python-dotenv (>=1.2.1,<2.0.0)",
+    "pydantic (>=2.12.4,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.1,<10.0.0)",
+    "black (>=25.11.0,<26.0.0)",
+    "isort (>=7.0.0,<8.0.0)",
+    "python-dotenv (>=1.2.1,<2.0.0)"
+]
