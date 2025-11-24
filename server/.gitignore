@@ -1,0 +1,89 @@
+# ----------------------------------------
+# Python
+# ----------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+.Python
+env/
+venv/
+ENV/
+.VENV/
+*.sqlite3
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+
+# ----------------------------------------
+# Poetry
+# ----------------------------------------
+# Don't ignore poetry.lock — keep it!
+# Ignore virtualenv created by Poetry
+# (only if you keep venv inside project)
+.poetry/
+
+# ----------------------------------------
+# FastAPI / Uvicorn
+# ----------------------------------------
+# Uvicorn reload directory
+.devtools/
+reload/
+
+# ----------------------------------------
+# Environment Variables
+# ----------------------------------------
+.env
+.env.*
+!.env.example
+
+# ----------------------------------------
+# Logs
+# ----------------------------------------
+*.log
+logs/
+log/
+debug.log
+
+# ----------------------------------------
+# IDE / Editors
+# ----------------------------------------
+# VS Code
+.vscode/
+.history/
+*.code-workspace
+
+# PyCharm / JetBrains
+.idea/
+*.iml
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ----------------------------------------
+# Testing
+# ----------------------------------------
+.coverage
+coverage.xml
+pytest_cache/
+htmlcov/
+
+# ----------------------------------------
+# Docker
+# ----------------------------------------
+# Ignore local build artifacts
+docker-data/
+docker-compose.override.yml
+
+# ----------------------------------------
+# OS Specific
+# ----------------------------------------
+.DS_Store
+Thumbs.db
