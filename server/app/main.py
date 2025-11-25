@@ -1,33 +1,23 @@
+import uvicorn
+import time
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-import time
-import uvicorn
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-
-    print(
-        f"====================Starting the app at {time.strftime('%Y-%m-%d %H:%M:%S')}===================="
-    )
+    print(f"Starting the Backend at {time.strftime('%Y-%m-%d %H:%M:%S')}")
     yield
-    print(
-        f"====================Shutting down at {time.strftime('%Y-%m-%d %H:%M:%S')}===================="
-    )
+    print(f"Closing the Backend at {time.strftime('%Y-%m-%d %H:%M:%S')}")
 
 
 app = FastAPI(
-    title="Portfolio_backend",
-    description="Handling the client response",
+    title="Portfolio Backend",
+    description="Handling the Client Request",
     version="1.0",
     debug=True,
     lifespan=lifespan,
 )
-
-
-@app.get("/")
-def root():
-    return {"message": "Successfully running"}
 
 
 if __name__ == "__main__":
