@@ -6,7 +6,7 @@ class Message_model(Base):
     __tablename__ = "message_box"
 
     id = Column(Integer, primary_key=True, index=True)
-    username = Column(String(50), nullable=True)
+    username = Column(String(50), nullable=False, server_default="anonymous")
     message = Column(
         String(500),
         nullable=False,

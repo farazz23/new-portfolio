@@ -6,10 +6,12 @@ from contextlib import asynccontextmanager
 from fastapi.middleware.cors import CORSMiddleware
 from .core.config import setting
 from .routers import message_router
+from .db.database import create_table
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    await create_table()
     print(f"Starting the Backend at {time.strftime('%Y-%m-%d %H:%M:%S')}")
     yield
     print(f"Closing the Backend at {time.strftime('%Y-%m-%d %H:%M:%S')}")
@@ -20,6 +22,7 @@ app = FastAPI(
     description="Handling the client response",
     version="1.0",
     debug=setting.APP_DEBUG,
+    lifespan=lifespan,
 )
 
 

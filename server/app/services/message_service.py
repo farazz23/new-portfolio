@@ -5,8 +5,9 @@ from ..models.message_model import Message_model
 
 
 async def create_message(db: AsyncSession, message: MessageCreate) -> Message_model:
+    username = (message.username or "").strip() or None
 
-    db_message = Message_model(username=message.username, message=message.message)
+    db_message = Message_model(username=username, message=message.message)
 
     db.add(db_message)
     await db.commit()

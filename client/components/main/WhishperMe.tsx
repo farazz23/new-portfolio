@@ -16,30 +16,22 @@ import axios from 'axios';
 // import Link from 'next/link';
 
 const WhisperMe = () => {
-  const [formContent, setFormContent] = useState({
-    name: '',
-    message: '',
-  });
-  // const [isLoading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // setLoading(true);
 
     try {
-      console.log(formContent.name);
-      console.log(formContent.message);
+      console.log(message);
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/wishper`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/message`,
         {
-          ...formContent,
+          username: 'anonymous',
+          message: message,
         }
       );
 
       console.log('Message sent successfully', response.data);
-      setFormContent({
-        name: '',
-        message: '',
-      });
+      setMessage('');
     } catch (error) {
       console.error('Error sending message ❌', error);
     }
@@ -78,7 +70,7 @@ const WhisperMe = () => {
           transition={{ duration: 1.2, delay: 1 }}
           className="font-bold font-quicksand tracking-wide text-neutral-600 dark:text-neutral-400 py-1.5 "
         >
-          Drop your thoughts anonymously — your identity is optional.
+          Drop your thoughts anonymously
         </motion.p>
 
         {/*  */}
@@ -95,23 +87,23 @@ const WhisperMe = () => {
           <CardContent>
             <form onSubmit={handleFormSubmit} id="wishper_form">
               <div className="flex flex-col gap-6">
-                <div className="flex flex-col items-start gap-2 ">
+                {/* <div className="flex flex-col items-start gap-2 ">
                   <Label htmlFor="name" className="font-bold">
                     Your Secret Identity 🕵️‍♂️
                   </Label>
                   <Input
                     id="name"
                     type="text"
-                    value={formContent.name}
+                    value={message.name}
                     onChange={(e) =>
-                      setFormContent({ ...formContent, name: e.target.value })
+                      setMessage({ ...message, name: e.target.value })
                     }
                     placeholder="Leave me guessing… or give me a nickname"
                   />
                   <span className="text-xs text-gray-700 font-bold">
                     You can leave this blank — your identity is safe.
                   </span>
-                </div>
+                </div> */}
                 <div className="grid gap-2">
                   <div className="flex items-center">
                     <Label htmlFor="message" className="font-bold">
@@ -120,14 +112,9 @@ const WhisperMe = () => {
                   </div>
                   <textarea
                     id="message"
-                    value={formContent.message}
-                    onChange={(e) =>
-                      setFormContent({
-                        ...formContent,
-                        message: e.target.value,
-                      })
-                    }
-                    placeholder="Tell me anything — feedback, ideas, secrets."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Tell me anything — feedback, ideas, secrets"
                     className={cn(
                       'file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-48 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
                       'focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]',

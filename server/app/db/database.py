@@ -1,18 +1,18 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.ext.asyncio import async_sessionmaker
-from contextlib import asynccontextmanager
 from sqlalchemy.ext.declarative import declarative_base
 from ..core.config import setting
+from typing import AsyncGenerator
 
 
 BASE_URL = setting.DATABASE_URL
 engine = create_async_engine(
     BASE_URL,
-    pool_size=setting.DB_POOL_SIZE,
-    max_overflow=setting.DB_MAX_OVERFLOW,
-    pool_timeout=setting.DB_POOL_TIMEOUT,
+    # pool_size=setting.DB_POOL_SIZE,
+    # max_overflow=setting.DB_MAX_OVERFLOW,
+    # pool_timeout=setting.DB_POOL_TIMEOUT,
     echo=setting.DB_ECHO,
-    future=True,
+    # future=True,
 )
 
 
@@ -23,11 +23,14 @@ Async_SessionLocal = async_sessionmaker(
 Base = declarative_base()
 
 
-@asynccontextmanager
-async def get_db():
-    async with AsyncSession() as db_session:
+async def get_db() -> AsyncGenerator[AsyncSession, None]:
+    async with Async_SessionLocal() as db_session:
         try:
             yield db_session
+            await db_session.commit()
+        except Exception:
+            await db_session.rollback()
+            raise
         finally:
             await db_session.close()
 
