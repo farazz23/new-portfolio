@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { HoverEffect } from '@/components/ui/card-hover-effect';
 import axios from 'axios';
-import { LoaderOne } from '@/components/ui/loader';
 import { Button } from '@/components/ui/moving-border';
 import { ChevronLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { Atom } from 'react-loading-indicators';
 
 const Page = () => {
   const [message, setMessage] = useState([]);
@@ -42,7 +42,11 @@ const Page = () => {
   }, []);
 
   if (loading) {
-    return <LoaderOne />;
+    return (
+      <div className="flex items-center justify-center pt-50 lg:pt-34">
+        <Atom color="#179fde" size="medium" text="" textColor="" />
+      </div>
+    );
   }
 
   return (
@@ -81,17 +85,23 @@ const Page = () => {
         >
           Brief voices that arrived without faces or footprints.
         </motion.p>
-      </div>
-      <div className="flex items-center justify-center md:justify-end pt-4 lg:mr-24">
-        <Button
-          borderRadius="1.75rem"
-          className="font-bold"
-          onClick={() => router.push('/?scroll=wishperbox')}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 1 }}
+          className="flex items-center justify-center md:justify-end pt-4 lg:mr-24"
         >
-          <ChevronLeft />
-          Message Box
-        </Button>
+          <Button
+            borderRadius="1.75rem"
+            className="font-bold"
+            onClick={() => router.push('/?scroll=wishperbox')}
+          >
+            <ChevronLeft />
+            Message Box
+          </Button>
+        </motion.div>
       </div>
+
       <HoverEffect items={message} />
     </section>
   );
