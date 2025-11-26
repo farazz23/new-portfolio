@@ -1,7 +1,6 @@
 'use client';
 import { useState, FormEvent } from 'react';
-import { motion } from 'framer-motion'; // use framer-motion if possible
-import { Input } from '../ui/input';
+import { motion } from 'motion/react'; // use framer-motion if possible
 import {
   Card,
   CardContent,
@@ -13,10 +12,29 @@ import { Button2 } from '../ui/stateful-button';
 import { Label } from '../ui/label';
 import { cn } from '@/lib/utils';
 import axios from 'axios';
-// import Link from 'next/link';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 const WhisperMe = () => {
   const [message, setMessage] = useState('');
+  const router = useRouter();
+  const search = useSearchParams();
+  const scrollTarget = search.get('scroll');
+
+  useEffect(() => {
+    if (scrollTarget === 'wishperbox') {
+      const el = document.getElementById('wishperbox');
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 200); // short delay so page fully renders
+      }
+      router.replace('/', { scroll: false }); // optional cleanup
+    }
+  }, [scrollTarget, router]);
+
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -31,13 +49,17 @@ const WhisperMe = () => {
       );
 
       console.log('Message sent successfully', response.data);
+      router.push('/message');
       setMessage('');
     } catch (error) {
       console.error('Error sending message ❌', error);
     }
   };
   return (
-    <section className="relative container w-full py-24 pb-20 lg:py-30 min-h-screen overflow-hidden">
+    <section
+      id="wishperbox"
+      className="relative container w-full py-24 pb-20 lg:py-30 min-h-screen overflow-hidden"
+    >
       <div className="flex flex-col items-center text-center">
         {/* Heading */}
         <motion.h2
@@ -87,23 +109,6 @@ const WhisperMe = () => {
           <CardContent>
             <form onSubmit={handleFormSubmit} id="wishper_form">
               <div className="flex flex-col gap-6">
-                {/* <div className="flex flex-col items-start gap-2 ">
-                  <Label htmlFor="name" className="font-bold">
-                    Your Secret Identity 🕵️‍♂️
-                  </Label>
-                  <Input
-                    id="name"
-                    type="text"
-                    value={message.name}
-                    onChange={(e) =>
-                      setMessage({ ...message, name: e.target.value })
-                    }
-                    placeholder="Leave me guessing… or give me a nickname"
-                  />
-                  <span className="text-xs text-gray-700 font-bold">
-                    You can leave this blank — your identity is safe.
-                  </span>
-                </div> */}
                 <div className="grid gap-2">
                   <div className="flex items-center">
                     <Label htmlFor="message" className="font-bold">
@@ -137,10 +142,13 @@ const WhisperMe = () => {
           </CardFooter>
         </Card>
 
-        {/* <p className="font-bold">See what other people says...</p>
-        <Link href="/message" className="font-bold hover:text-red-500">
+        <p className="font-bold">See what other people says...</p>
+        <Link
+          href="/message"
+          className="font-bold text-red-600 hover:text-red-500"
+        >
           Click Me
-        </Link> */}
+        </Link>
       </div>
     </section>
   );

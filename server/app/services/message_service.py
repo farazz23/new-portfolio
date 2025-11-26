@@ -22,3 +22,25 @@ async def get_message(db: AsyncSession):
 
     messages = result.scalars().all()
     return messages
+
+
+async def get_one_message(db: AsyncSession, id: int):
+    result = await db.execute(select(Message_model).where(Message_model.id == id))
+
+    message = result.scalar_one_or_none()
+    return message
+
+
+async def delete_message(db: AsyncSession, id: int):
+    result = await db.execute(select(Message_model).where(Message_model.id == id))
+
+    message = result.scalar_one_or_none()
+
+    if not message:
+        return {
+            "status": 404,
+        }
+
+    await db.delete(message)
+    await db.commit()
+    return message

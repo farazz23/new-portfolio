@@ -24,3 +24,7 @@ class MessageResponse(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class MessageDelete(BaseModel):
+    id: str
