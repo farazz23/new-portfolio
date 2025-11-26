@@ -1,15 +1,15 @@
-"use client";
-import { motion } from "motion/react";
-import React from "react";
+'use client';
+import { motion } from 'motion/react';
+import React from 'react';
 
 export const LoaderOne = () => {
   const transition = (x: number) => {
     return {
       duration: 1,
       repeat: Infinity,
-      repeatType: "loop" as const,
+      repeatType: 'loop' as const,
       delay: x * 0.2,
-      ease: "easeInOut",
+      ease: 'easeInOut',
     };
   };
   return (
@@ -21,7 +21,13 @@ export const LoaderOne = () => {
         animate={{
           y: [0, 10, 0],
         }}
-        transition={transition(0)}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          repeatType: 'loop' as const,
+          delay: 0 * 0.2,
+          ease: 'easeInOut',
+        }}
         className="h-4 w-4 rounded-full border border-neutral-300 bg-gradient-to-b from-neutral-400 to-neutral-300"
       />
       <motion.div
@@ -31,7 +37,13 @@ export const LoaderOne = () => {
         animate={{
           y: [0, 10, 0],
         }}
-        transition={transition(1)}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          repeatType: 'loop' as const,
+          delay: 1 * 0.2,
+          ease: 'easeInOut',
+        }}
         className="h-4 w-4 rounded-full border border-neutral-300 bg-gradient-to-b from-neutral-400 to-neutral-300"
       />
       <motion.div
@@ -41,7 +53,13 @@ export const LoaderOne = () => {
         animate={{
           y: [0, 10, 0],
         }}
-        transition={transition(2)}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          repeatType: 'loop' as const,
+          delay: 2 * 0.2,
+          ease: 'easeInOut',
+        }}
         className="h-4 w-4 rounded-full border border-neutral-300 bg-gradient-to-b from-neutral-400 to-neutral-300"
       />
     </div>
@@ -53,15 +71,21 @@ export const LoaderTwo = () => {
     return {
       duration: 2,
       repeat: Infinity,
-      repeatType: "loop" as const,
+      repeatType: 'loop' as const,
       delay: x * 0.2,
-      ease: "easeInOut",
+      ease: 'easeInOut',
     };
   };
   return (
     <div className="flex items-center">
       <motion.div
-        transition={transition(0)}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          repeatType: 'loop' as const,
+          delay: 0 * 0.2,
+          ease: 'easeInOut',
+        }}
         initial={{
           x: 0,
         }}
@@ -77,7 +101,13 @@ export const LoaderTwo = () => {
         animate={{
           x: [0, 20, 0],
         }}
-        transition={transition(0.4)}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          repeatType: 'loop' as const,
+          delay: 0.4 * 0.2,
+          ease: 'easeInOut',
+        }}
         className="h-4 w-4 -translate-x-2 rounded-full bg-neutral-200 shadow-md dark:bg-neutral-500"
       />
       <motion.div
@@ -87,7 +117,13 @@ export const LoaderTwo = () => {
         animate={{
           x: [0, 20, 0],
         }}
-        transition={transition(0.8)}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          repeatType: 'loop' as const,
+          delay: 0.8 * 0.2,
+          ease: 'easeInOut',
+        }}
         className="h-4 w-4 -translate-x-4 rounded-full bg-neutral-200 shadow-md dark:bg-neutral-500"
       />
     </div>
@@ -110,13 +146,13 @@ export const LoaderThree = () => {
     >
       <motion.path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <motion.path
-        initial={{ pathLength: 0, fill: "var(--fill-initial)" }}
-        animate={{ pathLength: 1, fill: "var(--fill-final)" }}
+        initial={{ pathLength: 0, fill: 'var(--fill-initial)' }}
+        animate={{ pathLength: 1, fill: 'var(--fill-final)' }}
         transition={{
           duration: 2,
-          ease: "easeInOut",
+          ease: 'easeInOut',
           repeat: Infinity,
-          repeatType: "reverse",
+          repeatType: 'reverse',
         }}
         d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"
       />
@@ -124,20 +160,20 @@ export const LoaderThree = () => {
   );
 };
 
-export const LoaderFour = ({ text = "Loading..." }: { text?: string }) => {
+export const LoaderFour = ({ text = 'Loading...' }: { text?: string }) => {
   return (
     <div className="relative font-bold text-black [perspective:1000px] dark:text-white">
       <motion.span
         animate={{
-          skew: [0, -40, 0],
+          rotate: [0, -40, 0],
           scaleX: [1, 2, 1],
         }}
         transition={{
           duration: 0.05,
           repeat: Infinity,
-          repeatType: "reverse",
+          repeatType: 'reverse',
           repeatDelay: 2,
-          ease: "linear",
+          ease: 'linear',
           times: [0, 0.2, 0.5, 0.8, 1],
         }}
         className="relative z-20 inline-block"
@@ -154,8 +190,8 @@ export const LoaderFour = ({ text = "Loading..." }: { text?: string }) => {
         transition={{
           duration: 0.5,
           repeat: Infinity,
-          repeatType: "reverse",
-          ease: "linear",
+          repeatType: 'reverse',
+          ease: 'linear',
           times: [0, 0.2, 0.5, 0.8, 1],
         }}
       >
@@ -171,8 +207,8 @@ export const LoaderFour = ({ text = "Loading..." }: { text?: string }) => {
         transition={{
           duration: 0.8,
           repeat: Infinity,
-          repeatType: "reverse",
-          ease: "linear",
+          repeatType: 'reverse',
+          ease: 'linear',
           times: [0, 0.3, 0.6, 0.8, 1],
         }}
       >
@@ -185,7 +221,7 @@ export const LoaderFour = ({ text = "Loading..." }: { text?: string }) => {
 export const LoaderFive = ({ text }: { text: string }) => {
   return (
     <div className="font-sans font-bold [--shadow-color:var(--color-neutral-500)] dark:[--shadow-color:var(--color-neutral-100)]">
-      {text.split("").map((char, i) => (
+      {text.split('').map((char, i) => (
         <motion.span
           key={i}
           className="inline-block"
@@ -193,22 +229,22 @@ export const LoaderFive = ({ text }: { text: string }) => {
           animate={{
             scale: [1, 1.1, 1],
             textShadow: [
-              "0 0 0 var(--shadow-color)",
-              "0 0 1px var(--shadow-color)",
-              "0 0 0 var(--shadow-color)",
+              '0 0 0 var(--shadow-color)',
+              '0 0 1px var(--shadow-color)',
+              '0 0 0 var(--shadow-color)',
             ],
             opacity: [0.5, 1, 0.5],
           }}
           transition={{
             duration: 0.5,
             repeat: Infinity,
-            repeatType: "loop",
+            repeatType: 'loop',
             delay: i * 0.05,
-            ease: "easeInOut",
+            ease: 'easeInOut',
             repeatDelay: 2,
           }}
         >
-          {char === " " ? "\u00A0" : char}
+          {char === ' ' ? '\u00A0' : char}
         </motion.span>
       ))}
     </div>
