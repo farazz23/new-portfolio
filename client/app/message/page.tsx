@@ -4,19 +4,21 @@ import { motion } from 'motion/react';
 import { HoverEffect } from '@/components/ui/card-hover-effect';
 import axios from 'axios';
 import { Button } from '@/components/ui/moving-border';
-import { ChevronLeft, MoveUpLeft } from 'lucide-react';
+import { MoveUpLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Atom } from 'react-loading-indicators';
 import toast from 'react-hot-toast';
 
 const Page = () => {
-  const [message, setMessage] = useState([]);
+  const [message, setMessage] = useState<
+    { id: number; username: string; message: string; created_at: string }[]
+  >([]);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handleMessageDelete = async (id: number) => {
     try {
-      await axios.delete(
+      const response = await axios.delete(
         `${process.env.NEXT_PUBLIC_API_URL}/api/message/${id}`
       );
       setMessage((prev) => prev.filter((m) => m.id !== id));
@@ -35,7 +37,12 @@ const Page = () => {
         `${process.env.NEXT_PUBLIC_API_URL}/api/message`
       );
       console.log(response.data);
-      const data = await response.data;
+      const data: {
+        id: number;
+        username: string;
+        message: string;
+        created_at: string;
+      }[] = await response.data;
       setMessage(data);
       console.log(message);
     } catch (e) {
