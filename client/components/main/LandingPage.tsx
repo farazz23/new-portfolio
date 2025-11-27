@@ -1,5 +1,5 @@
 'use client';
-import { easeInOut, motion } from 'motion/react';
+import { motion } from 'motion/react';
 import React, { useState } from 'react';
 import { Button } from '../ui/moving-border';
 import { Button2 } from '../ui/stateful-button';

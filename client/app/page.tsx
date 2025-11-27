@@ -1,3 +1,4 @@
+'use client';
 import About from '@/components/main/About';
 import Contact from '@/components/main/Contact';
 import Experience from '@/components/main/Experience';
@@ -18,9 +19,6 @@ export default function Home() {
       <WhishperMe />
       <Contact />
       <Footer />
-      {/* 
-        <Quote />
-      */}
     </section>
   );
 }

@@ -1,26 +1,26 @@
+'use client';
 import { cn } from '@/lib/utils';
+import { Trash } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-
+import axios from 'axios';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 export const HoverEffect = ({
   items,
   className,
+  onDelete,
 }: {
   items: {
+    id: number;
     username: string;
     message: string;
     created_at: string;
   }[];
   className?: string;
+  onDelete: (id: number) => void;
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const splitDateTime = (iso: string) => {
-    // 2025-11-25T23:20:35.209572Z
-    const [date, timeWithMs] = iso.split('T'); //2025-11-25
-    const time = timeWithMs.split('.')[0];
-    return { date, time };
-  };
 
   return (
     <div
@@ -54,10 +54,15 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card>
-            <CardTitle>{item.username}</CardTitle>
-
+            <CardTitle className="flex items-center gap-2">
+              {item.username}
+              <Trash
+                size={16}
+                onClick={() => onDelete(item.id)}
+                className="cursor-pointer hover:text-red-400"
+              />
+            </CardTitle>
             <FormatDate dateString={item.created_at} />
-
             <CardDescription>{item.message}</CardDescription>
           </Card>
         </div>

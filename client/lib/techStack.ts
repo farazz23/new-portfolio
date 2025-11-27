@@ -1,0 +1,123 @@
+export const techStack = [
+  {
+    id: 1,
+    label: 'Python',
+    icon: '/tech/python-5.svg',
+    link: 'https://www.python.org/community/logos/',
+  },
+  {
+    id: 2,
+    label: 'FastAPI',
+    icon: '/tech/fastapi-1.svg',
+    link: 'https://fastapi.tiangolo.com/',
+  },
+  {
+    id: 3,
+    label: 'PostgreSQL',
+    icon: '/tech/postgresql.svg',
+    link: 'https://www.postgresql.org/',
+  },
+  {
+    id: 4,
+    label: 'Redis',
+    icon: '/tech/redis.svg',
+    link: 'https://redis.io/',
+  },
+  {
+    id: 5,
+    label: 'Docker',
+    icon: '/tech/docker-4.svg',
+    link: 'https://www.docker.com/',
+  },
+  {
+    id: 6,
+    label: 'React.js',
+    icon: '/tech/react-2.svg',
+    link: 'https://react.dev/',
+  },
+  {
+    id: 7,
+    label: 'Next.js',
+    icon: '/tech/next-js.svg',
+    link: 'https://nextjs.org/',
+  },
+  {
+    id: 8,
+    label: 'TypeScript',
+    icon: '/tech/typescript-2.svg',
+    link: 'https://www.typescriptlang.org/',
+  },
+  {
+    id: 9,
+    label: 'TailwindCSS',
+    icon: '/tech/tailwind-css-2.svg',
+    link: 'https://tailwindcss.com/',
+  },
+  {
+    id: 10,
+    label: 'Node.js',
+    icon: '/tech/nodejs-icon.svg',
+    link: 'https://nodejs.org/en',
+  },
+  {
+    id: 11,
+    label: 'Express.js',
+    icon: '/tech/Express.svg',
+    link: 'https://expressjs.com/',
+  },
+  {
+    id: 12,
+    label: 'MongoDB',
+    icon: '/tech/mongodb-icon-1.svg',
+    link: 'https://www.mongodb.com/',
+  },
+  {
+    id: 13,
+    label: 'Java',
+    icon: '/tech/java-icon.svg',
+    link: 'https://www.mongodb.com/',
+  },
+  {
+    id: 14,
+    label: 'JavaScript',
+    icon: '/tech/javascript-logo-svgrepo-com.svg',
+    link: 'https://www.mongodb.com/',
+  },
+  {
+    id: 15,
+    label: 'PostmanAPI',
+    icon: '/tech/postman-icon-svgrepo-com.svg',
+    link: 'https://www.mongodb.com/',
+  },
+  {
+    id: 16,
+    label: 'Git',
+    icon: '/tech/git-icon-logo-svgrepo-com.svg',
+    link: 'https://www.mongodb.com/',
+  },
+  {
+    id: 17,
+    label: 'Stripe',
+    icon: '/tech/stripe-svgrepo-com.svg',
+    link: 'https://www.mongodb.com/',
+  },
+  {
+    id: 18,
+    label: 'Sentry',
+    icon: '/tech/sentry-icon-svgrepo-com.svg',
+    link: 'https://www.mongodb.com/',
+  },
+  {
+    id: 19,
+    label: 'C++',
+    icon: '/tech/c-plus-plus-svgrepo-com.svg',
+    link: 'https://www.mongodb.com/',
+  },
+
+  {
+    id: 22,
+    label: 'VS Code',
+    icon: '/tech/vscode.svg',
+    link: 'https://www.mongodb.com/',
+  },
+];

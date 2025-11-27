@@ -1,43 +1,51 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { HoverEffect } from '@/components/ui/card-hover-effect';
 import axios from 'axios';
 import { Button } from '@/components/ui/moving-border';
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, MoveUpLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Atom } from 'react-loading-indicators';
+import toast from 'react-hot-toast';
 
 const Page = () => {
   const [message, setMessage] = useState([]);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const scrollToBox = () => {
-    console.log('clicked');
-    const el = document.getElementById('wishperbox');
-    console.log(el);
+  const handleMessageDelete = async (id: number) => {
+    try {
+      await axios.delete(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/message/${id}`
+      );
+      setMessage((prev) => prev.filter((m) => m.id !== id));
 
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+      toast.success('Successfully deleted');
+      // await response.data;
+    } catch (error) {
+      toast.error('Internal Server Error');
+    }
   };
 
-  useEffect(() => {
-    async function fetchMessags() {
-      try {
-        setLoading(true);
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/message`
-        );
-        const data = await response.data;
-        setMessage(data);
-        console.log(message);
-      } catch (e) {
-        console.log(e);
-      } finally {
-        setLoading(false);
-      }
+  const fetchMessags = useCallback(async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/message`
+      );
+      console.log(response.data);
+      const data = await response.data;
+      setMessage(data);
+      console.log(message);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
     }
+  }, []);
 
+  useEffect(() => {
     fetchMessags();
   }, []);
 
@@ -50,12 +58,12 @@ const Page = () => {
   }
 
   return (
-    <section className="relative container w-full py-22 pb-20  min-h-screen overflow-hidden">
+    <section className="relative container w-full py-4 px-8 md:px-16  min-h-screen overflow-hidden">
       <div className="flex flex-col items-center text-center">
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
           className="font-quicksand text-3xl md:text-4xl font-bold "
         >
@@ -79,7 +87,7 @@ const Page = () => {
         {/* Subtext */}
         <motion.p
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1 }}
           className="font-bold font-quicksand tracking-wide text-neutral-600 dark:text-neutral-400 py-1.5 "
         >
@@ -87,22 +95,22 @@ const Page = () => {
         </motion.p>
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1 }}
-          className="flex items-center justify-center md:justify-end pt-4 lg:mr-24"
+          className="flex-col md:flex-row items-center justify-center md:justify-end pt-4 lg:mr-24"
         >
           <Button
             borderRadius="1.75rem"
-            className="font-bold"
-            onClick={() => router.push('/?scroll=wishperbox')}
+            className="font-bold flex items-center gap-2"
+            onClick={() => router.push('/')}
           >
-            <ChevronLeft />
-            Message Box
+            <MoveUpLeft />
+            Home
           </Button>
         </motion.div>
       </div>
 
-      <HoverEffect items={message} />
+      <HoverEffect items={message} onDelete={handleMessageDelete} />
     </section>
   );
 };

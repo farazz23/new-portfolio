@@ -14,45 +14,26 @@ import { cn } from '@/lib/utils';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 const WhisperMe = () => {
   const [message, setMessage] = useState('');
   const router = useRouter();
-  const search = useSearchParams();
-  const scrollTarget = search.get('scroll');
-
-  useEffect(() => {
-    if (scrollTarget === 'wishperbox') {
-      const el = document.getElementById('wishperbox');
-      if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }, 200); // short delay so page fully renders
-      }
-      router.replace('/', { scroll: false }); // optional cleanup
-    }
-  }, [scrollTarget, router]);
 
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      console.log(message);
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/message`,
-        {
-          username: 'anonymous',
-          message: message,
-        }
-      );
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/message`, {
+        username: 'anonymous',
+        message: message,
+      });
 
-      console.log('Message sent successfully', response.data);
+      toast.success('Message Sent');
       router.push('/message');
       setMessage('');
     } catch (error) {
-      console.error('Error sending message ❌', error);
+      toast.error('Internal Server Error');
     }
   };
   return (
