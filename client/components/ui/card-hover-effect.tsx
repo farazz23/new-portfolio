@@ -57,11 +57,6 @@ export const HoverEffect = ({
           <Card>
             <CardTitle className="flex items-center gap-2">
               {item.username}
-              {/* <Trash
-                size={16}
-                onClick={() => onDelete(item.id)}
-                className="cursor-pointer hover:text-red-400"
-              /> */}
             </CardTitle>
             <FormatDate dateString={item.created_at} />
             <CardDescription>{item.message}</CardDescription>

@@ -22,8 +22,7 @@ class MessageResponse(BaseModel):
     message: str
     created_at: datetime
 
-    class Config:
-        orm_mode = True
+    model_config = {"from_attributes": True}
 
 
 class MessageDelete(BaseModel):

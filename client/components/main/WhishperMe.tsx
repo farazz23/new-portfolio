@@ -24,11 +24,14 @@ const WhisperMe = () => {
     e.preventDefault();
 
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/message`, {
-        username: 'anonymous',
-        message: message,
-      });
-
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/message`,
+        {
+          username: 'anonymous',
+          message: message,
+        }
+      );
+      console.log(response.data);
       toast.success('Message Sent');
       router.push('/message');
       setMessage('');
