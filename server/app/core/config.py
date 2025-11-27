@@ -21,6 +21,7 @@ class Setting(BaseSettings):
     # Database (These are required to be in .env or OS environment)
     DATABASE_URL: str
     FRONTEND_URL: str
+    PRODUCTION_URL: str
 
     # Pooling / performance tuning
     DB_POOL_SIZE: int = 10
