@@ -53,6 +53,7 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
+
           <Card>
             <CardTitle className="flex items-center gap-2">
               {item.username}
