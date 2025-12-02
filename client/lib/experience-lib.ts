@@ -1,0 +1,50 @@
+export const experiences = [
+  {
+    title: 'Backend Developer',
+    company: 'Klugsys',
+    country: 'Germany',
+    state: 'Aachen',
+    type: 'Full-Time', // Assumed based on role description
+    period: 'Present',
+    span_color: 'bg-green-500',
+    points: [
+      'Developed and maintained scalable REST APIs using FastAPI, ensuring high performance and adherence to clean architecture principles.',
+      'Optimized Docker images and container workflows by applying multi-stage builds, reducing image size and build time while improving deployment efficiency.',
+      'Designed and executed complex SQL queries and database operations in PostgreSQL, including indexing, query tuning, and schema updates to improve performance.',
+      'Implemented API versioning, dependency injection, validation, and async patterns to ensure reliability, maintainability, and scalability.',
+      'Improved system performance and workflow efficiency by refactoring code, eliminating bottlenecks, and implementing async patterns where applicable.',
+    ],
+  },
+  {
+    title: 'Full Stack Web Developer',
+    company: 'DS Energize',
+    country: 'India',
+    state: 'New Delhi',
+    type: 'Full-Time',
+    span_color: 'bg-gray-500',
+    period: 'Jan 2025 - Aug 2025',
+    points: [
+      'Collaborated with a cross-functional team to design and implement an IoT-enabled web application for real-time data integration and visualization.',
+      'Developed and optimized backend services to asynchronously fetch real-time data from databases, ensuring seamless, low-latency communication with the frontend.',
+      'Engineered robust data parsing logic to transform raw IoT logger data into structured, readable formats, improving data usability and storage efficiency.',
+      'Contributed to secure and scalable database design, supporting reliable storage and retrieval of high-frequency IoT-generated data for real-time applications.',
+      'Integrated IoT protocols and principles with modern web technologies to enable efficient data transmission between hardware devices and the web interface.',
+      'Assisted in developing a responsive, user-friendly frontend for real-time IoT data visualization.',
+    ],
+  },
+  {
+    title: 'Frontend Developer',
+    company: 'Noveracian Global',
+    country: 'India',
+    state: 'Maharashtra',
+    type: 'Full-Time',
+    span_color: 'bg-gray-500',
+    period: 'June 2023 - Mar 2024',
+    points: [
+      'Developed and implemented user interfaces using React.js, enhancing application responsiveness and user experience across various devices.',
+      'Optimized user interface design, reducing user complaints by 20% and increasing user satisfaction.',
+      'Identified and resolved bugs in the codebase, decreasing unresolved issues by 25% and ensuring smoother application performance.',
+      'Collaborated with the development team to refine user-centric design elements, improving overall user engagement and satisfaction.',
+    ],
+  },
+];

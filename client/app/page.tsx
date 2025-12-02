@@ -16,6 +16,7 @@ export default function Home() {
       <Experience />
       <TechStack />
       <Project />
+      {/* <Freelancing /> */}
       <WhishperMe />
       <Contact />
       <Footer />

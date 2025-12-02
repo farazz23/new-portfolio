@@ -42,8 +42,44 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: 'Faraaz Ashraf',
-  description: 'Software Developer',
+  title: 'Faraaz Ashraf | Full Stack Developer in Next.js and Python',
+  description:
+    'Expertise in modern web development, focusing on high-performance Next.js application and scalable cloud architecture',
+  keywords: ['freelancing', 'developer', 'next.js', 'python'],
+  openGraph: {
+    title: 'One of the talented developer',
+    description: 'Find the best and talented full stack developer',
+    siteName: 'https://faraaz-ashraf.vercel.app/',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/seo.png',
+        width: 150,
+        height: 150,
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Faraaz Ashraf | Freelancer | Full Stack Developer',
+    description: 'Explore the sleak website of full stack developer ....',
+    creator: 'ashraffaraaz6@gmail.com',
+    images: ['/seo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
   icons: {
     icon: '/favicon-v2.ico',
     shortcut: '/favicon-32x32.png',

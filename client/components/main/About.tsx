@@ -3,19 +3,9 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { LayoutTextFlip } from '../ui/layout-text-flip';
 import Link from 'next/link';
+import { aboutMe } from '@/lib/about-lib';
 
 const About = () => {
-  const aboutMe = [
-    'Developer',
-    'Freelancer',
-    'Enthusiast',
-    'Coder',
-    'Programmer',
-    'Builder',
-    'Learner',
-    'Creator',
-  ];
-
   const paragraphs = [
     <React.Fragment key="p1">
       <p>
