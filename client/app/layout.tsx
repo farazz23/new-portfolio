@@ -42,32 +42,46 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: 'Faraaz Ashraf | Full Stack Developer in Next.js and Python',
+  title: 'Faraaz Ashraf | Full-Stack Developer (Next.js & Python)',
   description:
-    'Expertise in modern web development, focusing on high-performance Next.js application and scalable cloud architecture',
-  keywords: ['freelancing', 'developer', 'next.js', 'python'],
+    'Full-stack developer specializing in Next.js, Python, and cloud-ready architectures. Building fast, scalable, and modern web applications with clean engineering practices.',
+  keywords: [
+    'full stack developer',
+    'next.js developer',
+    'python developer',
+    'freelancer',
+    'web developer',
+    'portfolio',
+    'react',
+    'backend developer',
+  ],
+
   openGraph: {
-    title: 'One of the talented developer',
-    description: 'Find the best and talented full stack developer',
-    siteName: 'https://faraaz-ashraf.vercel.app/',
+    title: 'Faraaz Ashraf — Full-Stack Developer (Next.js & Python)',
+    description:
+      'Explore the work, skills, and projects of a developer focused on high-performance Next.js apps and robust backend systems.',
+    siteName: 'Faraaz Ashraf',
     locale: 'en_US',
     type: 'website',
     images: [
       {
         url: '/seo.png',
-        width: 150,
-        height: 150,
+        width: 1200,
+        height: 630,
+        alt: 'Faraaz Ashraf — Full Stack Developer Portfolio',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Faraaz Ashraf | Freelancer | Full Stack Developer',
-    description: 'Explore the sleak website of full stack developer ....',
-    creator: 'ashraffaraaz6@gmail.com',
+    title: 'Faraaz Ashraf | Full-Stack Developer • Next.js & Python',
+    description:
+      'A clean, fast portfolio crafted with modern web engineering. Discover projects, skills, and services.',
+    creator: '@heyanonymouss', // Use your actual handle if you create one
     images: ['/seo.png'],
   },
+
   robots: {
     index: true,
     follow: true,
@@ -80,6 +94,7 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
+
   icons: {
     icon: '/favicon-v2.ico',
     shortcut: '/favicon-32x32.png',

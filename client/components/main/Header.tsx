@@ -82,6 +82,7 @@ const Header = () => {
           {logos.map((item) => (
             <Link
               target="_blank"
+              rel="nofollow"
               href={item.link}
               key={item.id}
               className="hover:scale-125 transition-all duration-300 ease-in-out hover:text-rose-400 w-4 h-4"
