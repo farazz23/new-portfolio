@@ -78,7 +78,7 @@ const Header = () => {
 
       {/* Middle side : Navigatin bar */}
       <div className="hidden md:block">
-        <div className="flex items-center gap-5 cursor-pointer">
+        <nav className="flex items-center gap-5 cursor-pointer">
           {logos.map((item) => (
             <Link
               target="_blank"
@@ -90,7 +90,7 @@ const Header = () => {
               {item.icon}
             </Link>
           ))}
-        </div>
+        </nav>
       </div>
 
       {/* Right side :- Links */}
