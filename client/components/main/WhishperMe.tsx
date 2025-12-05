@@ -31,7 +31,7 @@ const WhisperMe = () => {
           message: message,
         }
       );
-      console.log(response.data);
+      // console.log(response.data);
       toast.success('Message Sent');
       router.push('/message');
       setMessage('');

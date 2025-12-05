@@ -36,7 +36,7 @@ const Page = () => {
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_API_URL}/api/message`
       );
-      console.log(response.data);
+      // console.log(response.data);
       const data: {
         id: number;
         username: string;
@@ -44,9 +44,12 @@ const Page = () => {
         created_at: string;
       }[] = await response.data;
       setMessage(data);
-      console.log(message);
-    } catch (e) {
-      console.log(e);
+      // console.log(message);
+    } catch (error: unknown) {
+      toast.error(
+        error instanceof Error ? error.message : 'An unknown error occurred'
+      );
+      // console.log(e);
     } finally {
       setLoading(false);
     }
