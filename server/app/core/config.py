@@ -1,4 +1,5 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from typing import Optional
 
 # 1. Instantiate the configuration dictionary
 config_dict = SettingsConfigDict(
@@ -13,16 +14,19 @@ class Setting(BaseSettings):
     model_config = config_dict
 
     # App
+    # App
     APP_ENV: str = "development"
     APP_DEBUG: bool = False
     APP_HOST: str = "0.0.0.0"
     APP_PORT: int = 8000
 
-    # Database (These are required to be in .env or OS environment)
-    LOCAL_URL: str
-    DATABASE_URL: str
-    LOCAL_FRONTEND_URL: str
-    FRONTEND_URL: str
+    # Database
+    # FIX: Add default values for optional fields
+    LOCAL_URL: Optional[str] = None  # Default to None
+    DATABASE_URL: str = ""  # Consider adding a default or making optional
+
+    LOCAL_FRONTEND_URL: Optional[str] = None  # Default to None
+    FRONTEND_URL: str = ""  # Consider adding a default or making optional
 
     # Pooling / performance tuning
     DB_POOL_SIZE: int = 10

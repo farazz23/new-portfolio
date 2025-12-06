@@ -11,7 +11,9 @@ ENV_VAR = setting.APP_ENV
 if ENV_VAR == "production":
     engine = create_async_engine(BASE_URL, echo=setting.DB_ECHO)
 else:
-    engine = create_async_engine(BASE_2_URL, echo=setting.DB_ECHO)
+    if not setting.LOCAL_URL:
+        raise ValueError("LOCAL_URL is not set for development environment")
+    engine = create_async_engine(setting.LOCAL_URL, echo=setting.DB_ECHO)
 
 
 Async_SessionLocal = async_sessionmaker(
