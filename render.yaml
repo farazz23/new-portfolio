@@ -3,24 +3,18 @@ services:
   - type: web
     name: fastapi-backend
     env: python
-    region: oregon # or: frankfurt, singapore, ohio, etc.
-    plan: free # or: starter, standard, pro
+    region: oregon
+    plan: free
 
-    # Build Configuration
+    rootDir: server # 👈 IMPORTANT — Run everything from the server folder
+
     buildCommand: |
       pip install --upgrade pip
       pip install -r requirements.txt
-      # If using Alembic for migrations:
-      # alembic upgrade head
 
-    # Start Command
     startCommand: |
-      # Using Gunicorn for production (recommended)
       gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:10000
-      # OR using Uvicorn directly (for development)
-      # uvicorn main:app --host 0.0.0.0 --port 10000
 
-    # Environment Variables
     envVars:
       - key: ENVIRONMENT
         value: production
@@ -35,30 +29,12 @@ services:
       - key: ALLOWED_ORIGINS
         value: https://your-frontend.com,http://localhost:3000
 
-    # Health Check (important for Render)
     healthCheckPath: /health
-    autoDeploy: true # Auto-deploy on git push
+    autoDeploy: true
 
-    # Advanced Settings
-    # disk:
-    #   name: data
-    #   mountPath: /data
-    #   sizeGB: 1
-
-# PostgreSQL Database (Optional but recommended)
 databases:
   - name: fastapi-db
     databaseName: fastapi_prod
     user: fastapi_user
     region: oregon
-    plan: free # Free: 1GB storage, Starter: $7/month
-    # postgresMajorVersion: 15  # Specify version if needed
-# Cron Jobs (Optional - for scheduled tasks)
-# jobs:
-#   - name: cleanup-job
-#     env: python
-#     region: oregon
-#     plan: free
-#     schedule: "0 0 * * *"  # Daily at midnight
-#     buildCommand: pip install -r requirements.txt
-#     startCommand: python scripts/cleanup.py
+    plan: free
