@@ -29,10 +29,6 @@ class Setting(BaseSettings):
     DB_POOL_TIMEOUT: int = 30
     DB_ECHO: bool = False
 
-    # Gunicorn
-    GUNICORN_WORKERS: int = 2
-    GUNICORN_THREADS: int = 1
-
     # Other
     LOG_LEVEL: str = "info"
 

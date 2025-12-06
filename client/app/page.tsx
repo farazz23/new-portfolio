@@ -19,7 +19,7 @@ export default function Home() {
       {/* <Freelancing /> */}
       <WhishperMe />
       <Contact />
-      <Footer />
+      {/* <Footer /> */}
     </section>
   );
 }

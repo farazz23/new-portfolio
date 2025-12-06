@@ -11,6 +11,7 @@ import Header from '@/components/main/Header';
 import { ThemeProvider } from 'next-themes';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Toaster } from 'react-hot-toast';
+import Footer from '@/components/main/Footer';
 
 const geistSans = Geist({
   subsets: ['latin'],
@@ -120,6 +121,7 @@ export default function RootLayout({
             <main className="flex-1 mt-18  ">
               {children} <Toaster />
             </main>
+            <Footer />
           </section>
         </ThemeProvider>
       </body>
