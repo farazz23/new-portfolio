@@ -6,14 +6,12 @@ from typing import AsyncGenerator
 
 
 BASE_URL = setting.DATABASE_URL
-engine = create_async_engine(
-    BASE_URL,
-    # pool_size=setting.DB_POOL_SIZE,
-    # max_overflow=setting.DB_MAX_OVERFLOW,
-    # pool_timeout=setting.DB_POOL_TIMEOUT,
-    echo=setting.DB_ECHO,
-    # future=True,
-)
+BASE_2_URL = setting.LOCAL_URL
+ENV_VAR = setting.APP_ENV
+if ENV_VAR == "production":
+    engine = create_async_engine(BASE_URL, echo=setting.DB_ECHO)
+else:
+    engine = create_async_engine(BASE_2_URL, echo=setting.DB_ECHO)
 
 
 Async_SessionLocal = async_sessionmaker(

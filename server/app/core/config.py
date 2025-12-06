@@ -19,10 +19,10 @@ class Setting(BaseSettings):
     APP_PORT: int = 8000
 
     # Database (These are required to be in .env or OS environment)
-    DATABASE_URL: str
     LOCAL_URL: str
+    DATABASE_URL: str
+    LOCAL_FRONTEND_URL: str
     FRONTEND_URL: str
-    PRODUCTION_URL: str
 
     # Pooling / performance tuning
     DB_POOL_SIZE: int = 10
