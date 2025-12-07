@@ -15,14 +15,14 @@ class Setting(BaseSettings):
 
     # App
     # App
-    APP_ENV: str = "development"
+    APP_ENV: str = "production"
     APP_DEBUG: bool = False
     APP_HOST: str = "0.0.0.0"
     APP_PORT: int = 8000
 
     # Database
     # FIX: Add default values for optional fields
-    LOCAL_URL: Optional[str] = None  # Default to None
+    LOCAL_URL: str = ""  # Default to None
     DATABASE_URL: str = ""  # Consider adding a default or making optional
 
     LOCAL_FRONTEND_URL: Optional[str] = None  # Default to None
@@ -33,6 +33,7 @@ class Setting(BaseSettings):
     DB_MAX_OVERFLOW: int = 20
     DB_POOL_TIMEOUT: int = 30
     DB_ECHO: bool = False
+    DB_FUTURE: bool = True
 
     # Other
     LOG_LEVEL: str = "info"
