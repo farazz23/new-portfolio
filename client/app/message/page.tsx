@@ -8,6 +8,7 @@ import { MoveUpLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Atom } from 'react-loading-indicators';
 import toast from 'react-hot-toast';
+import Contact from '@/components/main/Contact';
 
 const Page = () => {
   const [message, setMessage] = useState<
@@ -68,60 +69,63 @@ const Page = () => {
   }
 
   return (
-    <section className="relative container w-full py-4 px-8 md:px-16  min-h-screen overflow-hidden">
-      <div className="flex flex-col items-center text-center">
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: -40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-          className="font-quicksand text-3xl md:text-4xl font-bold "
-        >
-          Messages{' '}
-          <span
-            className="bg-clip-text text-transparent 
+    <>
+      <section className="relative container w-full py-4 px-8 md:px-16  min-h-screen overflow-hidden">
+        <div className="flex flex-col items-center text-center">
+          {/* Heading */}
+          <motion.h2
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            className="font-quicksand text-3xl md:text-4xl font-bold "
+          >
+            Messages{' '}
+            <span
+              className="bg-clip-text text-transparent 
           bg-gradient-to-r from-blue-600 to-purple-600"
-          >
-            Without
-          </span>{' '}
-          or say{' '}
-          <span
-            className="bg-clip-text text-transparent 
+            >
+              Without
+            </span>{' '}
+            or say{' '}
+            <span
+              className="bg-clip-text text-transparent 
           bg-gradient-to-r from-blue-600 to-purple-600 bg-black "
-          >
-            Signatures
-          </span>
-          <span className="text-black dark:text-white">in a Bottle</span>
-        </motion.h2>
+            >
+              Signatures
+            </span>
+            <span className="text-black dark:text-white">in a Bottle</span>
+          </motion.h2>
 
-        {/* Subtext */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 1 }}
-          className="font-bold font-quicksand tracking-wide text-neutral-600 dark:text-neutral-400 py-1.5 "
-        >
-          Brief voices that arrived without faces or footprints.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 1 }}
-          className="flex-col md:flex-row items-center justify-center md:justify-end pt-4 lg:mr-24"
-        >
-          <Button
-            borderRadius="1.75rem"
-            className="font-bold flex items-center gap-2"
-            onClick={() => router.push('/')}
+          {/* Subtext */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 1 }}
+            className="font-bold font-quicksand tracking-wide text-neutral-600 dark:text-neutral-400 py-1.5 "
           >
-            <MoveUpLeft />
-            Home
-          </Button>
-        </motion.div>
-      </div>
+            Brief voices that arrived without faces or footprints.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 1 }}
+            className="flex-col md:flex-row items-center justify-center md:justify-end pt-4 lg:mr-24"
+          >
+            <Button
+              borderRadius="1.75rem"
+              className="font-bold flex items-center gap-2"
+              onClick={() => router.push('/')}
+            >
+              <MoveUpLeft />
+              Home
+            </Button>
+          </motion.div>
+        </div>
 
-      <HoverEffect items={message} onDelete={handleMessageDelete} />
-    </section>
+        <HoverEffect items={message} onDelete={handleMessageDelete} />
+      </section>
+      <Contact />
+    </>
   );
 };
 
